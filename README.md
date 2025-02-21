@@ -1,15 +1,15 @@
 # proto
 
-[![Go](https://github.com/emicklei/proto/actions/workflows/go.yml/badge.svg)](https://github.com/emicklei/proto/actions/workflows/go.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/emicklei/proto)](https://goreportcard.com/report/github.com/emicklei/proto)
-[![GoDoc](https://pkg.go.dev/badge/github.com/emicklei/proto)](https://pkg.go.dev/github.com/emicklei/proto)
+[![Go](https://github.com/sandwich-go/proto/actions/workflows/go.yml/badge.svg)](https://github.com/sandwich-go/proto/actions/workflows/go.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/sandwich-go/proto)](https://goreportcard.com/report/github.com/sandwich-go/proto)
+[![GoDoc](https://pkg.go.dev/badge/github.com/sandwich-go/proto)](https://pkg.go.dev/github.com/sandwich-go/proto)
 [![codecov](https://codecov.io/gh/emicklei/proto/branch/master/graph/badge.svg)](https://codecov.io/gh/emicklei/proto)
 
 Package in Go for parsing Google Protocol Buffers [.proto files version 2 + 3](https://developers.google.com/protocol-buffers/docs/reference/proto3-spec)
 
 ### install
 
-    go get -u -v github.com/emicklei/proto
+    go get -u -v github.com/sandwich-go/proto
 
 ### usage
 
@@ -19,7 +19,7 @@ Package in Go for parsing Google Protocol Buffers [.proto files version 2 + 3](h
 		"fmt"
 		"os"
 
-		"github.com/emicklei/proto"
+		"github.com/sandwich-go/proto"
 	)
 
 	func main() {
@@ -62,7 +62,7 @@ Use some linting tools (e.g. https://github.com/uber/prototool) or `protoc` for 
 
 ### contributions
 
-See [proto-contrib](https://github.com/emicklei/proto-contrib) for other contributions on top of this package such as protofmt, proto2xsd and proto2gql.
-[protobuf2map](https://github.com/emicklei/protobuf2map) is a small package for inspecting serialized protobuf messages using its `.proto` definition.
+See [proto-contrib](https://github.com/sandwich-go/proto-contrib) for other contributions on top of this package such as protofmt, proto2xsd and proto2gql.
+[protobuf2map](https://github.com/sandwich-go/protobuf2map) is a small package for inspecting serialized protobuf messages using its `.proto` definition.
 
 © 2017-2022, [ernestmicklei.com](http://ernestmicklei.com).  MIT License. Contributions welcome.

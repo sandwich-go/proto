@@ -635,7 +635,7 @@ func TestOptionWithRepeatedMessageValuesWithArray(t *testing.T) {
 	}
 }
 
-// https://github.com/emicklei/proto/issues/99
+// https://github.com/sandwich-go/proto/issues/99
 func TestFieldCustomOptionLeadingDot(t *testing.T) {
 	proto := `string app_entity_id = 4 [(.common.v1.some_custom_option) = { opt1: true opt2: false }];`
 	p := newParserOn(proto)
@@ -653,7 +653,7 @@ func TestFieldCustomOptionLeadingDot(t *testing.T) {
 	}
 }
 
-// https://github.com/emicklei/proto/issues/106
+// https://github.com/sandwich-go/proto/issues/106
 func TestEmptyArrayInOptionStructure(t *testing.T) {
 	src := `
 	option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
@@ -696,7 +696,7 @@ func TestEmptyArrayInOptionStructure(t *testing.T) {
 	}
 }
 
-// https://github.com/emicklei/proto/issues/107
+// https://github.com/sandwich-go/proto/issues/107
 func TestQuoteNotDroppedInOption(t *testing.T) {
 	src := `string name = 1 [ quote = '<="foo"' ];`
 	f := newNormalField()

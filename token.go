@@ -140,7 +140,7 @@ const doubleQuoteRune = rune('"')
 
 // unQuote removes one matching leading and trailing single or double quote.
 //
-// https://github.com/emicklei/proto/issues/103
+// https://github.com/sandwich-go/proto/issues/103
 // cannot use strconv.Unquote as this unescapes quotes.
 func unQuote(lit string) (string, rune) {
 	if len(lit) < 2 {

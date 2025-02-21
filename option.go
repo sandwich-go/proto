@@ -145,6 +145,9 @@ type Literal struct {
 	// literal value can be a map of literals (even nested)
 	// this is done as pairs of name keys and literal values so the original ordering is preserved
 	OrderedMap LiteralMap
+
+	IsMap   bool
+	IsArray bool
 }
 
 var emptyRune rune
@@ -166,6 +169,12 @@ func (m LiteralMap) Get(key string) (*Literal, bool) {
 
 // SourceRepresentation returns the source (use the same rune that was used to delimit the string).
 func (l Literal) SourceRepresentation() string {
+	if l.IsArray && len(l.Array) == 0 {
+		return "[]"
+	}
+	if l.IsMap && len(l.OrderedMap) == 0 {
+		return "{}"
+	}
 	var buf bytes.Buffer
 	if l.IsString {
 		if l.QuoteRune == emptyRune {
@@ -210,6 +219,7 @@ func (l *Literal) parse(p *Parser) error {
 			pos, _, _ := p.next()
 			l.Array = array
 			l.IsString = false
+			l.IsArray = true
 			l.Position = pos
 			return nil
 		}
@@ -229,15 +239,17 @@ func (l *Literal) parse(p *Parser) error {
 			return p.unexpected(lit, ", or ]", l)
 		}
 		l.Array = array
+		l.IsArray = true
 		l.IsString = false
 		l.Position = pos
 		return nil
 	}
 	if tLEFTCURLY == tok {
 		l.Position, l.Source, l.IsString = pos, "", false
+		l.IsMap = true
 		constants, err := parseAggregateConstants(p, l)
 		if err != nil {
-			return nil
+			return err
 		}
 		l.OrderedMap = LiteralMap(constants)
 		return nil
